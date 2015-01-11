@@ -1,9 +1,0 @@
-test/
-
-.gitattributes
-.gitignore
-.jscsrc
-.jshintrc
-.npmignore
-.travis.yml
-gulpfile.js

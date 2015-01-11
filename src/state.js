@@ -3,13 +3,11 @@ var states = require('./states');
 module.exports = function() {
   'use strict';
 
-  // Percentage of US population in those states
+  // Percentage of DE population in those states (roughly)
   // Mapped 1:1 with the states array
+  // 'BW', 'BY', 'BE', 'BB', 'HB', 'HH', 'HE', 'MV', 'NI', 'NW', 'RP', 'SL', 'SN','ST', 'SH', 'TH'
   var popPercent = [
-    0.2, 1.5, 0.9, 2.1, 12.1, 1.6, 1.2, 0.3, 6.1, 3.2, 0.4, 1.0, 0.5, 4.1, 2.1,
-    0.9, 1.4, 1.5, 2.1, 1.9, 0.4, 3.2, 1.7, 1.9, 1.0, 0.3, 3.1, 0.2, 0.6, 0.4,
-    2.8, 0.7, 0.9, 6.3, 3.7, 1.2, 1.2, 4.1, 0.3, 1.5, 0.3, 2.1, 8.3, 0.9, 2.6,
-    0.2, 2.2, 1.8, 0.6, 0.2
+    12, 15, 5, 3, 1, 3, 8, 2, 10, 19, 5, 1, 6, 3, 4, 3
   ];
 
   // Pick a random state, weighted by its population
