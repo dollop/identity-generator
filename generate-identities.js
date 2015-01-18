@@ -17,9 +17,10 @@ var department = require('./src/department');
 var identity = (function() {
   'use strict';
 
-  var Identity = function() {
+  var Identity = function(id) {
     var identity = {};
 
+    identity.id = id;
     identity.sex = sex();
     identity.firstName = firstName(identity.sex);
     identity.lastName = lastName();
@@ -30,8 +31,8 @@ var identity = (function() {
     identity.state = state();
     identity.zipCode = zipCode(identity.state);
     identity.dateOfBirth = dateOfBirth();
-    identity.company = company();
-    identity.department = department();
+    //identity.company = company();
+    //identity.department = department();
 
     return identity;
   };
@@ -42,13 +43,13 @@ var identity = (function() {
     }
 
     if (!num || num === 1) {
-      return new Identity();
+      return new Identity(1);
     } else {
       var identities = [];
       var i;
 
       for (i = 0; i < num; i += 1) {
-        identities.push(new Identity());
+        identities.push(new Identity(i+1));
       }
 
       return identities;
