@@ -1,8 +1,6 @@
-# fake-identity.js
+# identity-generator
 
-[![Build Status](https://travis-ci.org/travishorn/fake-identity.svg?branch=master)](https://travis-ci.org/travishorn/fake-identity)
-
-Generate random identity objects including name, address, etc. This may be useful if you are trying to fill your application with random personal data.
+Generate random identity objects including a valid name, address, etc.
 
 ## Features
 
@@ -10,85 +8,61 @@ Generate random identity objects including name, address, etc. This may be usefu
 - Includes first and last names, email address, phone number, street, city, state, zip code, date of birth, sex, company, and department.
 - Email address is based off of name.
 - First name matches sex.
-- All names, streets, and cities are commonly found in the US.
+- All names, streets, and cities are commonly found throughout Germany.
 - States are weighted on population, so more populous states appear more often.
 - Zip codes are loosely based on state. Zip codes are weird so it's not perfect, though.
 - Date of birth will be between 18 and 60.
-- Usable in the browser or Node.js.
 - No dependencies.
 
-## Installation
+Please note that city names are not checked whether they actually appear in the state, so e.g. "Dresden" could be placed in "Berlin". This would be an improvement, but the purpose of this project is mainly to create a set of realistic test data.
 
-### Browser
+This is a fork of the original project from [Travis Horn](https://github.com/travishorn/fake-identity). It has been modified regarding the data format so it applies for Germany (different states/names etc.)
 
-Add the following to your page:
+## Data structure
 
-    <script src="dist/fake-identity.js"></script>
-    
-This will make a new global variable named `Identity` available.
+A typical JSON is created that looks like this:
 
-### Node
-
-Run
-
-    npm install fake-identity
-
-Add the following to your application:
-
-    var Identity = require('fake-identity');
-
-## Usage
-
-Once installed, just use `Identity.generate()` in your scripts to get an identity object with random values. The returned object looks like this:
-
-    {
-      firstName: "Amelia",
-      lastName: "Wright",
-      emailAddress: "awright@example.com",
-      phoneNumber: "(555) 555-0155",
-      street: "7327 Central Avenue",
-      city: "Oxford",
-      state: "TX",
-      zipCode: "75045",
-      dateOfBirth: Fri Jul 20 1962 00:00:00,
-      sex: "female",
-      company: "Contoso Pharmaceuticals",
-      department: "Legal"
+    { id: 1,
+      se: 'male',
+      fn: 'Klaus',
+      ln: 'Meier',
+      ma: 'kmeier@mail.de',
+      ph: '070977121565',
+      st: 'Robert-Schumann-Platz',
+      hn: 24,
+      ci: 'Meppen',
+      sa: 'BE',
+      zi: '13013',
+      bi: Mon Mar 02 1981 00:00:00 GMT+0100 (Mitteleuropäische Zeit)
     }
-    
-You can also pass a number to generate more than one identity. Multiple identity objects are returned in an array like so:
 
-    Identity.generate(3);
-    
-    [
-      {
-        firstName: ...
-        lastName: ...
-        ...
-      },
-      {
-        firstName: ...
-        lastName: ...
-        ...
-      },
-      {
-        firstName: ...
-        lastName: ...
-        ...
-      }
-    ]
+Identifiers have been kept compact to limit file size since this is mainly imtended to be used with bigger amounts of data.
 
-## Tests
+Currently there are approx. 1200 male first names, 1600 female first names, 3400 last names, 7200 streets and 13500 cities with zip included which minifies the risk of creating any duplicates. Each entry also gets its own (unique) ID.
 
-Run `gulp test`
+## Setup
 
-Please note that, to run tests, you must clone the repository in git. Tests are not included in the NPM module.
+You can run everything via node.js. So checkout the project and generate an item like this:
 
-## To do
+`node generate-identities.js`
 
-- Add configuration options
+A single dataset will be created. To have more, add a number as parameter:
 
-## License
+`node generate-identities.js 12`
+
+To save it into a file in the /data subdirectory just add its name:
+
+`node generate-identities.js 10000 foo.json`
+
+That is all.
+
+## Data source
+
+Almost all of the source data has been taken from a PHP script created by Uwe Hölzel:
+
+[http://deruwe.de/2009/11/adressgenerator.html](http://deruwe.de/2009/11/adressgenerator.html)
+
+## Original license
 
 The MIT License (MIT)
 Copyright © 2014 Travis Horn

@@ -7,6 +7,7 @@ var lastName = require('./src/lastName.js');
 var emailAddress = require('./src/emailAddress');
 var phoneNumber = require('./src/phoneNumber');
 var street = require('./src/street');
+var houseNumber = require('./src/houseNumber');
 var city = require('./src/city');
 var state = require('./src/state');
 var zipCode = require('./src/zipCode');
@@ -20,19 +21,19 @@ var identity = (function() {
   var Identity = function(id) {
     var identity = {};
 
+    // use very short identifiers here to reduce file size
     identity.id = id;
-    identity.sex = sex();
-    identity.firstName = firstName(identity.sex);
-    identity.lastName = lastName();
-    identity.emailAddress = emailAddress(identity.firstName, identity.lastName);
-    identity.phoneNumber = phoneNumber();
-    identity.street = street();
-    identity.city = city();
-    identity.state = state();
-    identity.zipCode = zipCode(identity.state);
-    identity.dateOfBirth = dateOfBirth();
-    //identity.company = company();
-    //identity.department = department();
+    identity.se = sex();
+    identity.fn = firstName(identity.sex);
+    identity.ln = lastName();
+    identity.ma = emailAddress(identity.fn, identity.ln);
+    identity.ph = phoneNumber();
+    identity.st = street();
+    identity.hn = houseNumber();
+    identity.ci = city();
+    identity.sa = state();
+    identity.zi = zipCode(identity.sa);
+    identity.bi = dateOfBirth();
 
     return identity;
   };

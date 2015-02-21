@@ -1,25 +1,13 @@
 {
-  "name": "fake-identity",
+  "name": "identity-generator",
   "version": "1.0.6",
   "description": "Generate random identity objects including name, address, etc. This may be useful if you are trying to fill your application with random personal data.",
-  "main": "src/fake-identity.js",
-  "scripts": {
-    "test": "gulp test"
-  },
-  "author": "Travis Horn",
+  "main": "generate-identities.js",
+  "author": "Jan Petzold (original version: Travis Horn)",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git://github.com/travishorn/identity.git"
-  },
-  "devDependencies": {
-    "chai": "^1.9.1",
-    "gulp": "^3.8.8",
-    "gulp-browserify": "^0.5.0",
-    "gulp-jshint": "^1.8.4",
-    "gulp-mocha": "^1.1.0",
-    "gulp-uglify": "^1.0.1",
-    "jshint-stylish": "^0.4.0"
+    "url": "git://github.com/janpetzold/identity-generator.git"
   },
   "engines": {
     "node": ">= 0.10.0"

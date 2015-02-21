@@ -1,10 +1,9 @@
-var randomIntInRange = require('./randomIntInRange');
 var randomInArray = require('./randomInArray');
 
 module.exports = function() {
   'use strict';
 
-  // Common street names in the US
+  // Common street names in Germany
   var streets = [
     'Aachener Straße',
     'Abbestraße',
@@ -1449,7 +1448,6 @@ module.exports = function() {
     'Christiane-Vulpius-Straße',
     'Christian-Morgenstern-Straße',
     'Christian-Sültze-Straße',
-    'Christoph-Knips-Straße, Eckenheim',
     'Christophorusweg',
     'Chrysanthemenweg',
     'Cimbernweg',
@@ -1972,7 +1970,6 @@ module.exports = function() {
     'Eyssenstraße',
     'Eytelweinstraße',
     'Ezzostr.',
-    'Fabian-von-Schlabrendorff-Straße',
     'Fabriciusstraße',
     'Fabrikbau',
     'Fachfeldstraße',
@@ -2144,7 +2141,6 @@ module.exports = function() {
     'Franz-Henle-Straße',
     'Franziska-Kessel-Straße',
     'Franziskanergasse',
-    'Franziska.-von.-Oldershausen-Straße',
     'Franziusplatz',
     'Franz Josefs-Platz',
     'Franz-Kafka-Straße',
@@ -7261,13 +7257,6 @@ module.exports = function() {
     'Zwanzigerstraße',
     'Zweibrüderweg',
     'Zweidlerweg',
-    'Zweite Amsinckbrücke',
-    'Zweite Ausschläger Brücke',
-    'Zweite Borstelmannbrücke',
-    'Zweite Diagonalbrücke',
-    'Zweite Grevenbrücke',
-    'Zweite Hammerbrookbrücke',
-    'Zweite Heidenkampbrücke',
     'Zweite Luisenbrücke',
     'Zweite Nagelsbrücke',
     'Zwergenstieg',
@@ -7283,8 +7272,5 @@ module.exports = function() {
     'Zwischen den Hecken'
   ];
 
-  var streetNumber = randomIntInRange(1, 999);
-  var street = randomInArray(streets);
-
-  return street + ' ' + streetNumber;
+  return randomInArray(streets);
 };
