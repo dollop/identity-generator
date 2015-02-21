@@ -10,17 +10,17 @@ Generate random identity objects including a valid name, address, etc.
 - First name matches sex.
 - All names, streets, and cities are commonly found throughout Germany.
 - States are weighted on population, so more populous states appear more often.
-- Zip codes are loosely based on state. Zip codes are weird so it's not perfect, though.
+- Zip codes are loosely based on state.
 - Date of birth will be between 18 and 60.
 - No dependencies.
 
 Please note that city names are not checked whether they actually appear in the state, so e.g. "Dresden" could be placed in "Berlin". This would be an improvement, but the purpose of this project is mainly to create a set of realistic test data.
 
-This is a fork of the original project from [Travis Horn](https://github.com/travishorn/fake-identity). It has been modified regarding the data format so it applies for Germany (different states/names etc.)
+This is a fork of the original project from [Travis Horn](https://github.com/travishorn/fake-identity). It has been modified regarding the generated data so it creates data you'd find for German identities.
 
 ## Data structure
 
-A typical JSON is created that looks like this:
+A typical generated JSON item looks like this:
 
     { id: 1,
       se: 'male',
@@ -50,11 +50,11 @@ A single dataset will be created. To have more, add a number as parameter:
 
 `node generate-identities.js 12`
 
-To save it into a file in the /data subdirectory just add its name:
+To save it into a file in the /data subdirectory just add a file name:
 
 `node generate-identities.js 10000 foo.json`
 
-That is all.
+That is all for now.
 
 ## Data source
 
